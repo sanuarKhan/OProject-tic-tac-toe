@@ -7,9 +7,34 @@
     <link rel="stylesheet" href="stytle.css" />
   </head>
   <body>
-    <div id="root">
-      <h1>Tic Tac Toe</h1>
+    <h1>Tic Tac Toe</h1>
+    <h2 id="active-player">Tic-tac-toe</h2>
+    <div id="game-container"></div>
+    <button id="start-button">Start a new game</button>
+
+    <div class="blob-cont">
+      <div class="yellow blob"></div>
+      <div class="red blob"></div>
+      <div class="green blob"></div>
     </div>
+    <div class="footer"></div>
+
+    <svg>
+      <filter id="noiseFilter">
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.6"
+          stitchTiles="stitch"
+        />
+        <feColorMatrix
+          in="colorNoise"
+          type="matrix"
+          value="1 0 0 0 0 0 1 0 0 0 0 0 1 0"
+        />
+        <feComposite operator="in" in2="SourceGraphic" result="nomoNoise" />
+        <feBlend in="SourceGraphic" on2="nomoNoise" mode="screen" />
+      </filter>
+    </svg>
     <script src="./script.js"></script>
   </body>
 </html>
